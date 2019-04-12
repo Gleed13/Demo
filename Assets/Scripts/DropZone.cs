@@ -1,17 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DropZone : MonoBehaviour
+public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+//        Debug.Log(eventData.pointerDrag.name);
+        Debug.Log(gameObject.name);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void OnDrop(PointerEventData eventData)
     {
         
     }

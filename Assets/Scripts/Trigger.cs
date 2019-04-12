@@ -9,7 +9,7 @@ public class Trigger : MonoBehaviour, IPointerClickHandler
         var platform = transform.parent.gameObject;
         var c = platform.GetComponent<VisualPlatform>();
         c.ShowCards();
-        c.ChangeZoneColor(Color.red);
+        c.ChangeZoneColor(c.shown ? Color.red : Color.green);
 //        GameController.Instance.TriggerHandler(gameObject);
     }
 }

@@ -72,12 +72,14 @@ public class VisualPlatform : MonoBehaviour
         zone.transform.localScale = scl;
     }
 
+    public bool shown;
     public void ShowCards()
     {
+        shown = !shown;
         foreach (var card in visibleCards)
         {
             var model = card.GetComponent<CardModel>();
-            model.ToggleFace();
+            model.ToggleFace(shown);
         }
     }
 
