@@ -7,10 +7,6 @@ public class ArrowHandler : MonoBehaviour
     
     public static ArrowHandler Instance { get; private set; }
 
-    //Points
-    public GameObject startPoint;
-    public GameObject endPoint;
-
     //Arrow
     public GameObject container;
     
@@ -28,14 +24,10 @@ public class ArrowHandler : MonoBehaviour
         }
     }
     
-    
-    #region DragHandler
-    public void OnBeginDragHandler(Vector3 vec3, GameObject eventObject)
+    public void OnBeginDragHandler(Vector3 vec3)
     {
         //remember start position
         _start = vec3;
-        //remember on which platform the drag begins
-        startPoint = eventObject;
         
         //show arrow and set it's starting position
         container.SetActive(true);
@@ -74,37 +66,7 @@ public class ArrowHandler : MonoBehaviour
 
     public void OnEndDragHandler(PointerEventData eventData)
     {
-        if (startPoint != null)
-            Debug.Log("start = " + startPoint.name);
-        if (endPoint != null)
-            Debug.Log("end = " + endPoint.name);
-        
-        startPoint = null;
-        endPoint = null;
-        
-        
         //hide arrow
         container.SetActive(false);
-    }
-    #endregion
-
-    public void OnPointerEnterHandler(PointerEventData eventData, GameObject eventObject)
-    {
-        if (eventData.dragging && startPoint != eventObject)
-        {
-            Debug.Log(eventObject.name);
-            endPoint = eventObject;
-            endPoint.GetComponent<VisualPlatform>().ChangeZoneColor(Color.red);
-        }
-    }
-    
-    public void OnPointerExitHandler(PointerEventData eventData, GameObject eventObject)
-    {
-        if (eventData.dragging && startPoint != eventObject)
-        {
-            Debug.Log(eventObject.name + " exited");
-            endPoint.GetComponent<VisualPlatform>().ChangeZoneColor(Color.green);
-            endPoint = null;
-        }
     }
 }

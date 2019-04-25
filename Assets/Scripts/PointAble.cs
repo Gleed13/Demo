@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using Enum;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PointAble : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IDropHandler
 {
-    
+    public PointAbleOption type;
     
     private static Vector3 GetWorldVector3(PointerEventData eventData)
     {
@@ -17,7 +18,10 @@ public class PointAble : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         //        Debug.Log("start");
         var vec3 = transform.position;
-        ArrowHandler.Instance.OnBeginDragHandler(vec3, gameObject);
+        ArrowHandler.Instance.OnBeginDragHandler(vec3);
+        
+        
+        ArrowController.Instance.StartPoint(gameObject, type);
     }
                 
     public void OnDrag(PointerEventData eventData)
@@ -29,28 +33,32 @@ public class PointAble : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("ended");
+//        Debug.Log("ended");
         ArrowHandler.Instance.OnEndDragHandler(eventData);
+        
+        
+        ArrowController.Instance.EndPoint();
     }
     #endregion
     
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ArrowHandler.Instance.OnPointerEnterHandler(eventData, gameObject);
+        if (eventData.dragging)
+            ArrowController.Instance.OnPointerEnterHandler(gameObject, type);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        ArrowHandler.Instance.OnPointerExitHandler(eventData, gameObject);
+        if (eventData.dragging)
+            ArrowController.Instance.OnPointerExitHandler(gameObject);
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.dragging && ArrowHandler.Instance.startPoint != gameObject)
+        if (eventData.dragging)
         {
-            Debug.Log(gameObject.name + " dropped");
-            ArrowHandler.Instance.endPoint = gameObject;
+            ArrowController.Instance.OnDropHandler(gameObject, type);
         }
     }
 }

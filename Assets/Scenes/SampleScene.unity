@@ -1461,6 +1461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c60f9c6b39003d4d8015c4238c57014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPoint: {fileID: 0}
+  endPoint: {fileID: 0}
   container: {fileID: 1714483760}
   bot: {fileID: 125352879}
   body: {fileID: 1978994651}
@@ -1672,6 +1674,7 @@ MonoBehaviour:
   - {fileID: 1837938232}
   - {fileID: 49091345}
   - {fileID: 475289162}
+  shown: 0
 --- !u!4 &353731556
 Transform:
   m_ObjectHideFlags: 0
@@ -2118,6 +2121,7 @@ MonoBehaviour:
   - {fileID: 930012217}
   - {fileID: 853165701}
   - {fileID: 1761708740}
+  shown: 0
 --- !u!4 &470439769
 Transform:
   m_ObjectHideFlags: 0
@@ -2998,7 +3002,6 @@ GameObject:
   - component: {fileID: 770376762}
   - component: {fileID: 770376763}
   - component: {fileID: 770376764}
-  - component: {fileID: 770376765}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -3046,6 +3049,7 @@ MonoBehaviour:
   - {fileID: 353829910}
   - {fileID: 460004582}
   - {fileID: 770444164}
+  shown: 0
 --- !u!114 &770376764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3056,18 +3060,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d94942126d687724a8cff9a0dfa56deb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &770376765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770376761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35f24e4d57481954e8de55470618356b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &770444164
@@ -3262,6 +3254,7 @@ MonoBehaviour:
   visibleCards:
   - {fileID: 295477039}
   - {fileID: 1367001150}
+  shown: 0
 --- !u!4 &824543115
 Transform:
   m_ObjectHideFlags: 0
@@ -3288,7 +3281,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 824543113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35f24e4d57481954e8de55470618356b, type: 3}
+  m_Script: {fileID: 11500000, guid: d94942126d687724a8cff9a0dfa56deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &832237383
@@ -3326,6 +3319,7 @@ MonoBehaviour:
   - {fileID: 91145489}
   - {fileID: 103954239}
   - {fileID: 608599390}
+  shown: 0
 --- !u!4 &832237385
 Transform:
   m_ObjectHideFlags: 0
@@ -3911,6 +3905,7 @@ MonoBehaviour:
   visibleCards:
   - {fileID: 1462029791}
   - {fileID: 701473410}
+  shown: 0
 --- !u!4 &1058861909
 Transform:
   m_ObjectHideFlags: 0
@@ -5907,6 +5902,7 @@ MonoBehaviour:
   - {fileID: 1089097001}
   - {fileID: 1900478262}
   - {fileID: 1529696988}
+  shown: 0
 --- !u!4 &1953010462
 Transform:
   m_ObjectHideFlags: 0
