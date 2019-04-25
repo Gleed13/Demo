@@ -45,7 +45,9 @@ public class ArrowHandler : MonoBehaviour
         
         
         //set height of body of arrow
-        var distance = Vector3.Distance(_start, vec3);
+//        var distance = Vector3.Distance(_start, vec3);
+        var tmp = Mathf.Pow(_start.x - vec3.x, 2) + Mathf.Pow(_start.y - vec3.y, 2);
+        var distance = Mathf.Sqrt(tmp);
         
         var scale = body.transform.localScale;
         scale.y = distance*2 - 0.5f;

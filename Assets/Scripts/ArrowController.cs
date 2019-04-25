@@ -56,7 +56,7 @@ public class ArrowController : MonoBehaviour
         if (startPointType == endPointType)
         {
             Debug.Log(eventObject.name + " entered");
-            endPoint.GetComponent<VisualPlatform>().ChangeZoneColor(Color.red);
+//            endPoint.GetComponent<VisualPlatform>().ChangeZoneColor(Color.red);
         }
     }
     
@@ -68,7 +68,7 @@ public class ArrowController : MonoBehaviour
         if (startPointType == endPointType)
         {
             Debug.Log(eventObject.name + " exited");
-            endPoint.GetComponent<VisualPlatform>().ChangeZoneColor(Color.green);
+//            endPoint.GetComponent<VisualPlatform>().ChangeZoneColor(Color.green);
         }
             
         endPoint = null;

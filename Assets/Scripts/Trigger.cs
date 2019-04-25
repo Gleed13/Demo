@@ -15,6 +15,6 @@ public class Trigger : MonoBehaviour, IPointerClickHandler
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        
+        Do1();
     }
 }

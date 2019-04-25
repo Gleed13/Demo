@@ -43,7 +43,7 @@ public class VisualPlatform : MonoBehaviour
                 pos.x = startPoint + step*i + parPos.x;
                 pos.y = parPos.y;
                 pos.z = 1f / cards * (i + 1);
-//                Debug.Log("strtpoint = " + StartPoint + "\nx = " + pos.x);
+//                Debug.Log("startpoint = " + StartPoint + "\nx = " + pos.x);
                 visibleCards[i].transform.position = pos;
             }
         }
