@@ -5,27 +5,31 @@ public class VisualPlatform : MonoBehaviour
 {
 //    private SpriteRenderer _spriteRenderer;
     private SpriteRenderer _zoneSpriteRenderer;
+    private BoxCollider2D _collider2D;
     private float _scaleFactor;
     
     public float maxPlatformWidth;
 
     public GameObject zone;
+    
     public List<GameObject> visibleCards;
 
     private void Awake()
     {
 //        _spriteRenderer = GetComponent<SpriteRenderer>();
         _zoneSpriteRenderer = zone.GetComponent<SpriteRenderer>();
+        _collider2D = GetComponent<BoxCollider2D>();
     }
 
     private void Start()
     {
         Rearrange();
-        Select(true);
+        DefineZoneScale(true);
+        DefineCollider2DScale(true);
     }
 
     private const float Half = Util.CardWidth / 2;
-    public void Rearrange()
+    private void Rearrange()
     {
         var startPoint = -maxPlatformWidth / 2 + Half;
         
@@ -62,7 +66,7 @@ public class VisualPlatform : MonoBehaviour
         }
     }
 
-    public void Select(bool value)
+    private void DefineZoneScale(bool value)
     {
         _zoneSpriteRenderer.enabled = value;
         if (!value) return;
@@ -70,6 +74,15 @@ public class VisualPlatform : MonoBehaviour
         scl.x = _scaleFactor + Util.SelectThickness;
         scl.y = 1f + Util.SelectThickness;
         zone.transform.localScale = scl;
+    }
+
+    private void DefineCollider2DScale(bool value)
+    {
+        _collider2D.enabled = value;
+        if (!value) return;
+        var vec2 = _collider2D.size;
+        vec2.x = _scaleFactor;
+        _collider2D.size = vec2;
     }
 
     public bool shown;

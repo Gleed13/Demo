@@ -36,6 +36,7 @@ public class ArrowController : MonoBehaviour
         {
             Debug.Log("start = " + startPoint.name);
             Debug.Log("end = " + endPoint.name);
+            Debug.Log("type = " + startPointType);
         }
         
         startPoint = null;
