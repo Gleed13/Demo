@@ -15,6 +15,7 @@ public class Trigger : MonoBehaviour, IPointerClickHandler
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        Do1();
+        if (!eventData.dragging)
+            Do1();
     }
 }

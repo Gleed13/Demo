@@ -85,6 +85,14 @@ public class VisualPlatform : MonoBehaviour
         _collider2D.size = vec2;
     }
 
+    public void AddCard(GameObject card)
+    {
+        card.transform.parent = transform;
+        visibleCards.Add(card);
+        Rearrange();
+        DefineZoneScale(true);
+    }
+    
     public bool shown;
     public void ShowCards()
     {
